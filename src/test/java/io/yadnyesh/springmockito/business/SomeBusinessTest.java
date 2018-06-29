@@ -20,6 +20,13 @@ public class SomeBusinessTest {
 		assertEquals(0, actualResult);
 	}
 	
+	@Test
+	public void calculateSum_oneValue() {
+		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
+		int actualResult = someBusiness.calculateSum(new int[] {5});
+		assertEquals(5, actualResult);
+	}
+	
 	
 
 }
