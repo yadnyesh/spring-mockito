@@ -39,8 +39,9 @@ public class ListMockTest {
 	@Test
 	public void verificationBasics() {
 		String value = mock.get(0);
+		String value1 = mock.get(1);
 		verify(mock).get(0);
-		verify(mock).get(anyInt());
-		verify(mock, times(1)).get(anyInt());
+		verify(mock, atLeast(1)).get(anyInt());
+		verify(mock, times(2)).get(anyInt());
 	}
 }
