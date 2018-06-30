@@ -5,13 +5,11 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.anyInt;
+import static org.mockito.Mockito.*;
 
 public class ListMockTest {
 	
-	List mock = mock(List.class);
+	List<String> mock = mock(List.class);
 	
 	@Test
 	public void basicWithSize() {
@@ -36,5 +34,11 @@ public class ListMockTest {
 	public void returnWithGenericParameters() {
 		when(mock.get(anyInt())).thenReturn("yadnyesh"); ///anyInt() --> argument matcher
 		assertEquals("yadnyesh", mock.get(0));
+	}
+	
+	@Test
+	public void verificationBasics() {
+		String value = mock.get(0);
+		verify(mock).get(0);
 	}
 }
