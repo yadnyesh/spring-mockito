@@ -34,7 +34,7 @@ public class ListMockTest {
 	
 	@Test
 	public void returnWithGenericParameters() {
-		when(mock.get(anyInt())).thenReturn("yadnyesh");
+		when(mock.get(anyInt())).thenReturn("yadnyesh"); ///anyInt() --> argument matcher
 		assertEquals("yadnyesh", mock.get(0));
 	}
 }
