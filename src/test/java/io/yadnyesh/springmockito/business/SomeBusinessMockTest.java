@@ -3,20 +3,29 @@ package io.yadnyesh.springmockito.business;
 import io.yadnyesh.springmockito.data.SomeDataService;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
 import static org.mockito.Mockito.mock;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class SomeBusinessMockTest {
 	
+	@InjectMocks
 	SomeBusinessImpl someBusiness = new SomeBusinessImpl();
+	
+	@Mock
 	SomeDataService someDataServiceMock = mock(SomeDataService.class);
 	
-	@Before
-	public void before() {
-		someBusiness.setSomeDataService(someDataServiceMock);
-	}
+//	@Before
+//	public void before() {
+//		someBusiness.setSomeDataService(someDataServiceMock);
+//	}
 	
 	@Test
 	public void calculateSumUsingDataService_basic() {
