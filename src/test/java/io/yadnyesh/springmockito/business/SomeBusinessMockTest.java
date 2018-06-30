@@ -17,15 +17,10 @@ import static org.mockito.Mockito.when;
 public class SomeBusinessMockTest {
 	
 	@InjectMocks
-	SomeBusinessImpl someBusiness = new SomeBusinessImpl();
+	SomeBusinessImpl someBusiness;
 	
 	@Mock
 	SomeDataService someDataServiceMock = mock(SomeDataService.class);
-	
-//	@Before
-//	public void before() {
-//		someBusiness.setSomeDataService(someDataServiceMock);
-//	}
 	
 	@Test
 	public void calculateSumUsingDataService_basic() {
