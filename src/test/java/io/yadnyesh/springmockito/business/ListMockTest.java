@@ -40,5 +40,7 @@ public class ListMockTest {
 	public void verificationBasics() {
 		String value = mock.get(0);
 		verify(mock).get(0);
+		verify(mock).get(anyInt());
+		verify(mock, times(1)).get(anyInt());
 	}
 }
