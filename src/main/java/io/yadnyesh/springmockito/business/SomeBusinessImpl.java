@@ -7,7 +7,11 @@ import java.util.Arrays;
 public class SomeBusinessImpl {
 	
 	
-	SomeDataService someDataService;
+	private SomeDataService someDataService;
+	
+	public void setSomeDataService(SomeDataService someDataService) {
+		this.someDataService = someDataService;
+	}
 	
 	public int calculateSum(int[] data) {
 		return Arrays.stream(data).sum();
