@@ -14,6 +14,22 @@ class SomeDataServiceStub implements SomeDataService {
 	}
 }
 
+class SomeDataServiceEmptyStub implements SomeDataService {
+	
+	@Override
+	public int[] retrieveAllData() {
+		return new int[] {};
+	}
+}
+
+class SomeDataServiceOneElementStub implements SomeDataService {
+	
+	@Override
+	public int[] retrieveAllData() {
+		return new int[] {5};
+	}
+}
+
 
 
 public class SomeBusinessStubTest {
@@ -22,22 +38,24 @@ public class SomeBusinessStubTest {
 	public void calculateSumUsingDataService_basic() {
 		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
 		someBusiness.setSomeDataService(new SomeDataServiceStub());
-		int actualResult = someBusiness.calculateSum(new int[] {1,2,3,4,5});
+		int actualResult = someBusiness.calculateSumUsingDataService();
 		int expectedResult = 15;
 		assertEquals(expectedResult, actualResult);
 	}
 	
 	@Test
-	public void calculateSum_emptyArray() {
+	public void calculateSumUsingDataService_emptyArray() {
 		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
-		int actualResult = someBusiness.calculateSum(new int[] {});
+		someBusiness.setSomeDataService(new SomeDataServiceEmptyStub());
+		int actualResult = someBusiness.calculateSumUsingDataService();
 		assertEquals(0, actualResult);
 	}
 	
 	@Test
-	public void calculateSum_oneValue() {
+	public void calculateSumUsingDataService_oneValue() {
 		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
-		int actualResult = someBusiness.calculateSum(new int[] {5});
+		someBusiness.setSomeDataService(new SomeDataServiceOneElementStub());
+		int actualResult = someBusiness.calculateSumUsingDataService();
 		assertEquals(5, actualResult);
 	}
 	
