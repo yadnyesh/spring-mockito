@@ -1,6 +1,7 @@
 package io.yadnyesh.springmockito.business;
 
 import io.yadnyesh.springmockito.data.SomeDataService;
+import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.mock;
 
@@ -12,10 +13,14 @@ public class SomeBusinessMockTest {
 	SomeBusinessImpl someBusiness = new SomeBusinessImpl();
 	SomeDataService someDataServiceMock = mock(SomeDataService.class);
 	
+	@Before
+	public void before() {
+		someBusiness.setSomeDataService(someDataServiceMock);
+	}
+	
 	@Test
 	public void calculateSumUsingDataService_basic() {
 		when(someDataServiceMock.retrieveAllData()).thenReturn(new int[] {1,2,3});
-		someBusiness.setSomeDataService(someDataServiceMock);
 		int actualResult = someBusiness.calculateSumUsingDataService();
 		int expectedResult = 6;
 		assertEquals(expectedResult, actualResult);
