@@ -39,7 +39,7 @@ public class SomeBusinessStubTest {
 		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
 		someBusiness.setSomeDataService(new SomeDataServiceStub());
 		int actualResult = someBusiness.calculateSumUsingDataService();
-		int expectedResult = 15;
+		int expectedResult = 6;
 		assertEquals(expectedResult, actualResult);
 	}
 	
