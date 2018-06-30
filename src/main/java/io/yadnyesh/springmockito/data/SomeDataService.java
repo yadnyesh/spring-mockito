@@ -4,5 +4,5 @@ public interface SomeDataService {
 	
 	public int[] retrieveAllData();
 	
-	public int[] retrieveAllDataFromDatabase();
+	//public int[] retrieveAllDataFromDatabase();
 }

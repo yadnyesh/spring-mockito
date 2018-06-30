@@ -9,10 +9,11 @@ import static org.mockito.Mockito.when;
 
 public class SomeBusinessMockTest {
 	
+	SomeBusinessImpl someBusiness = new SomeBusinessImpl();
+	SomeDataService someDataServiceMock = mock(SomeDataService.class);
+	
 	@Test
 	public void calculateSumUsingDataService_basic() {
-		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
-		SomeDataService someDataServiceMock = mock(SomeDataService.class);
 		when(someDataServiceMock.retrieveAllData()).thenReturn(new int[] {1,2,3});
 		someBusiness.setSomeDataService(someDataServiceMock);
 		int actualResult = someBusiness.calculateSumUsingDataService();
@@ -22,8 +23,6 @@ public class SomeBusinessMockTest {
 	
 	@Test
 	public void calculateSumUsingDataService_emptyArray() {
-		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
-		SomeDataService someDataServiceMock = mock(SomeDataService.class);
 		when(someDataServiceMock.retrieveAllData()).thenReturn(new int[] {});
 		someBusiness.setSomeDataService(someDataServiceMock);
 		int actualResult = someBusiness.calculateSumUsingDataService();
@@ -32,8 +31,6 @@ public class SomeBusinessMockTest {
 	
 	@Test
 	public void calculateSumUsingDataService_oneValue() {
-		SomeBusinessImpl someBusiness = new SomeBusinessImpl();
-		SomeDataService someDataServiceMock = mock(SomeDataService.class);
 		when(someDataServiceMock.retrieveAllData()).thenReturn(new int[] {5});
 		someBusiness.setSomeDataService(someDataServiceMock);
 		int actualResult = someBusiness.calculateSumUsingDataService();
